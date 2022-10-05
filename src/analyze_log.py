@@ -1,6 +1,7 @@
 import csv
 import os
 
+
 def most_ordered_by_name(orders, name):
     filtered = []
 
@@ -54,9 +55,9 @@ def read(path_to_file):
     if ".csv" not in path_to_file:
         raise FileNotFoundError(f"Extensão inválida: {path_to_file}")
 
-
     with open(path_to_file) as file:
         return list(csv.reader(file))
+
 
 def write(path, data):
     with open(path, encoding="utf-8") as file:
@@ -68,7 +69,9 @@ def analyze_log(path_to_file):
     data = read(path_to_file)
 
     maria_most = most_ordered_by_name(data, "maria")
-    arnaldo_hamburguer = times_ordered_by_food_and_name(data, "arnaldo", "hamburguer")
+    arnaldo_hamburguer = times_ordered_by_food_and_name(
+        data, "arnaldo", "hamburguer"
+        )
     joao_never = never_ordered_by_name(data, "joao")
     joao_never_went = days_never_visited_by_name(data, "joao")
 
