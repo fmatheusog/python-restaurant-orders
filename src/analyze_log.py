@@ -49,18 +49,18 @@ def days_never_visited_by_name(orders, name):
 
 
 def read(path_to_file):
-    if not os.path.exists(path_to_file):
-        raise FileNotFoundError(f"Arquivo inexistente: {path_to_file}")
-
     if ".csv" not in path_to_file:
         raise FileNotFoundError(f"Extensão inválida: {path_to_file}")
+    
+    if not os.path.exists(path_to_file):
+        raise FileNotFoundError(f"Arquivo inexistente: {path_to_file}")
 
     with open(path_to_file) as file:
         return list(csv.reader(file))
 
 
 def write(path, data):
-    with open(path, encoding="utf-8") as file:
+    with open(path, mode="w", encoding="utf-8") as file:
         for line in data:
             file.writelines(line)
 
