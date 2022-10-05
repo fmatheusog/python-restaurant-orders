@@ -44,4 +44,9 @@ class InventoryControl:
         }
 
     def get_available_dishes(self):
-        pass
+        result = set()
+
+        for item in self.INGREDIENTS:
+            if self.inventory[self.INGREDIENTS[item][0]] > 1:
+                result.add(item)
+        return result
