@@ -55,7 +55,7 @@ class TrackOrders:
     def get_least_busy_day(self):
         orders = list()
 
-        for order in self._data:
+        for order in self.all_orders:
             orders.append(order[2])
 
         return min(set(orders), key=orders.count)
